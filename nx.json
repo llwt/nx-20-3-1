@@ -34,7 +34,7 @@
       }
     },
     {
-      "plugin": "@nx/cypress/plugin",
+      "plugin": "@nx/cypress",
       "options": {
         "targetName": "e2e",
         "openTargetName": "open-cypress",
@@ -47,11 +47,37 @@
       "options": {
         "targetName": "test"
       }
+    },
+    {
+      "plugin": "@nx/next/plugin",
+      "options": {
+        "startTargetName": "start",
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "serveStaticTargetName": "serve-static"
+      }
+    },
+    {
+      "plugin": "@nx/cypress/plugin",
+      "options": {
+        "targetName": "cypress:e2e",
+        "openTargetName": "open-cypress",
+        "componentTestingTargetName": "component-test",
+        "ciTargetName": "e2e-ci"
+      }
     }
   ],
   "targetDefaults": {
     "e2e-ci--**/*": {
       "dependsOn": ["^build"]
+    },
+    "serve-static": {
+      "options": {
+        "spa": false
+      }
+    },
+    "e2e": {
+      "cache": true
     }
   },
   "generators": {
@@ -68,6 +94,12 @@
       "library": {
         "style": "css",
         "linter": "eslint"
+      }
+    },
+    "@nx/next": {
+      "application": {
+        "style": "css",
+        "linter": "none"
       }
     }
   },

@@ -1,0 +1,17 @@
+{
+  "name": "bar-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/bar-app",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project bar-app --web",
+  "targets": {
+    "serve": {
+      "executor": "@nx/next:server",
+      "options": {
+        "buildTarget": "bar-app:build",
+        "dev": true
+      }
+    }
+  }
+}
