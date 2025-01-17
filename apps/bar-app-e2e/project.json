@@ -1,0 +1,19 @@
+{
+  "name": "bar-app-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/bar-app-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["bar-app"],
+  "// targets": "to see all targets run: nx show project bar-app-e2e --web",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/bar-app-e2e/cypress.config.ts",
+        "devServerTarget": "bar-app:serve",
+        "testingType": "e2e"
+      }
+    }
+  }
+}
